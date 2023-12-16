@@ -1,4 +1,5 @@
 import asyncio.subprocess
+import uvicorn
 import logging
 from aiohttp import web
 from tqdm import tqdm
