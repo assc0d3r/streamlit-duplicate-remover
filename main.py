@@ -13,6 +13,9 @@ api_hash = 'b13a9434d5f59fdb592bf3cd0f457eff' # Please replace it with your own 
 
 # list of groups
 chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] # Please replace it with the group you want to listen to
+
+async def start(self):
+   bind_address = "0.0.0.0"
    
 # calculate file size
 def convert_size(text):
