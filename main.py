@@ -143,9 +143,7 @@ async def init():
         
      return False
     
-if __name__ == "__main__":
-    app.run()
-     
+    
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
