@@ -145,11 +145,10 @@ async def init():
      return False
     
     
- app.run(main())
+app.run(main())
      print("Initialize check for duplicate files")
      app.loop.run_until_complete(init())
+
      print("Start listening for new messages:")
      app.add_event_handler(handler)
      app.run_until_disconnected()
-
-
