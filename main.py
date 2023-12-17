@@ -1,19 +1,41 @@
 import asyncio.subprocess
+import os
 import logging
 from tqdm import tqdm
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
-logger = logging. getLogger(__name__)
-queue = asyncio. Queue()
+load_dotenv('config.env', override=True)
 
-api_id = 10038985 # Please replace it with your own api_id
-api_hash = 'b13a9434d5f59fdb592bf3cd0f457eff' # Please replace it with your own api_hash
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-# list of groups
-chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] # Please replace it with the group you want to listen to
-   
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+USER_SESSION = os.getenv("USER_SESSION")
+chat_list = os.getenv("chat_list")
+
+# Initialize the Client with user session or bot token
+if USER_SESSION:
+    app = Client(
+        "my_user_bot",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=USER_SESSION,
+        chat_list=chat_list
+    )
+    logger.info("Bot started using Session String")
+else:
+    app = Client(
+        "my_bot",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        bot_token=BOT_TOKEN
+        chat_list=chat_list
+    )
+    logger.info("Bot started using Bot Token")
+ 
 # calculate file size
 def convert_size(text):
      units = ["B", "KB", "MB", "GB", "TB", "PB"]
@@ -122,7 +144,7 @@ async def init():
         
      return False
 
-client = TelegramClient('bot', 10038985, 'b13a9434d5f59fdb592bf3cd0f457eff')
+client = app.run()
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
