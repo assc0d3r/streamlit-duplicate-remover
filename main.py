@@ -16,7 +16,6 @@ API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 USER_SESSION = os.getenv("USER_SESSION")
-chat_list = os.getenv("chat_list")
 
 # Initialize the Client with user session or bot token
 if USER_SESSION:
@@ -25,8 +24,7 @@ if USER_SESSION:
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=USER_SESSION,
-        chat_list=chat_list,
-    )
+            )
     logger.info("Bot started using Session String")
 else:
     app = Client(
@@ -47,7 +45,7 @@ def convert_size(text):
              return "%.2f%s" % (text, units[i])
          text = text/size
      return 0
-
+chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] 
 # Get file information
 def get_file_information(message):
      file = None
