@@ -144,11 +144,11 @@ async def init():
      return False
     
     
-with client:
+with app:
      print("Initialize check for duplicate files")
-     client.loop.run_until_complete(init())
+     app.loop.run_until_complete(init())
      print("Start listening for new messages:")
-     client.add_event_handler(handler)
-     client.run_until_disconnected()
+     app.add_event_handler(handler)
+     app.run_until_disconnected()
 
 
