@@ -1,3 +1,4 @@
+from pyrogram import Client, filters
 import asyncio.subprocess
 import os
 import logging
