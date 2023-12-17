@@ -23,7 +23,7 @@ if USER_SESSION:
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=USER_SESSION,
-        chat_list=chat_list
+        chat_list=chat_list,
     )
     logger.info("Bot started using Session String")
 else:
@@ -31,8 +31,8 @@ else:
         "my_bot",
         api_id=API_ID,
         api_hash=API_HASH,
-        bot_token=BOT_TOKEN
-        chat_list=chat_list
+        bot_token=BOT_TOKEN,
+        chat_list=chat_list,
     )
     logger.info("Bot started using Bot Token")
  
