@@ -6,3 +6,4 @@ python-dotenv
 pyrogram
 Flask
 gunicorn
+TgCrypto 
