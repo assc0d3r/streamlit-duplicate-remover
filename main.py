@@ -147,10 +147,9 @@ client = app.run()
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
-
-    if __name__ == "__main__":
-    app.run()
-
      print("Start listening for new messages:")
      client.add_event_handler(handler)
      client.run_until_disconnected()
+
+ if __name__ == "__main__":
+    app.run()
