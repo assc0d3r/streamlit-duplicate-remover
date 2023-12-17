@@ -142,8 +142,10 @@ async def init():
              bar.set_description('Group: {} Initialize check for duplicate files, check quantity: {}, delete: {}'.format(entity.title, total, delete))
         
      return False
-
-client = app.run()
+    
+ if __name__ == "__main__":
+    app.run()
+     
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
@@ -151,5 +153,4 @@ with client:
      client.add_event_handler(handler)
      client.run_until_disconnected()
 
- if __name__ == "__main__":
-    app.run()
+
