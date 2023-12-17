@@ -2,3 +2,4 @@ Telethon==1.25.1
 tqdm==4.62.3
 aiohttp
 uvicorn
+python-dotenv
