@@ -3,3 +3,6 @@ tqdm==4.62.3
 aiohttp
 uvicorn
 python-dotenv
+pyrogram
+Flask
+gunicorn
