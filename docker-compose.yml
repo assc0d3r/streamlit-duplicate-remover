@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+ app:
+    build: .
+    #network_mode: "service:gluetun" #If using VPN, Remove the Hash from first and fill up Above Details.
+    command: bash start.sh
+    restart: on-failure
+    ports:
+      - "80:80"
+      - "8080:8080"
