@@ -1,6 +1,7 @@
 import asyncio.subprocess
 import os
 import logging
+from dotenv import load_dotenv
 from tqdm import tqdm
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
