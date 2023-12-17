@@ -4,10 +4,6 @@ from tqdm import tqdm
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
-logger = logging. getLogger(__name__)
-queue = asyncio. Queue()
-
 api_id = 10038985 # Please replace it with your own api_id
 api_hash = 'b13a9434d5f59fdb592bf3cd0f457eff' # Please replace it with your own api_hash
 
