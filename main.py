@@ -3,6 +3,8 @@ import logging
 from tqdm import tqdm
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
+from decouple import config
+from telethon.sessions import StringSession
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
 logger = logging. getLogger(__name__)
