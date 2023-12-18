@@ -127,8 +127,8 @@ async def init():
 
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 with client:
-     # print("Initialize check for duplicate files")
-     # asyncio.get_event_loop().run_until_disconnected(init())
+     print("Initialize check for duplicate files")
+     asyncio.get_event_loop().run_until_disconnected(init())
      print("Start listening for new messages:")
-     # client.add_event_handler(handler)
+     client.add_event_handler(handler(update))
      client.run_until_disconnected(init())
