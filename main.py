@@ -130,4 +130,4 @@ with client:
      client.loop.run_until_complete(init())
      print("Start listening for new messages:")
      client.add_event_handler(handler)
-     client.loop.run_until_disconnected()
+     client.run_until_disconnected()
