@@ -11,9 +11,6 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 load_dotenv('config.env', override=True)
 chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] 
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
@@ -153,6 +150,3 @@ with client:
      print("Start listening for new messages:")
      client.add_event_handler(handler)
      client.run_until_disconnected()
-
-if __name__ == "__main__":
-    app.run()
