@@ -1,6 +1,6 @@
 services:
   - type: web
-    region: frankfurt
+    plan: free
     name: vipertgdel
     env: docker
     #buildCommand: pip install -U -r requirements.txt
