@@ -102,9 +102,9 @@ async def handler(update):
      # get group new information
      chat_id = update.message.to_id
      try:
-         entity = await Client.get_entity(chat_id)
+         entity = await client.get_entity(chat_id)
      except ValueError:
-         entity = await Client.get_entity(PeerChannel(chat_id))
+         entity = await client.get_entity(PeerChannel(chat_id))
      except Exception as e:
          logger. error(type(e.__class__, e))
          return
@@ -120,23 +120,23 @@ async def handler(update):
          if 'w' in file and 'h' in file:
              text += ", resolution:{}x{}".format(file['w'],file['h'])
          print(text)
-         await Client.delete_messages(entity=entity, message_ids=[update.message.id]) # delete message
+         await client.delete_messages(entity=entity, message_ids=[update.message.id]) # delete message
             
 
 async def init():
      bar = tqdm(chat_list)
      for i in bar:
-         entity = await Client.get_entity(i)
+         entity = await client.get_entity(i)
          file_list[entity.id] = [] # Initialize each group file list
          total = 0 # count the number of messages processed
          delete = 0 # Count the number of deleted messages
 
          # Read group messages (from old to new)
-         async for message in Client.iter_messages(entity, reverse = True):
+         async for message in client.iter_messages(entity, reverse = True):
              is_duplicate, _ = check_duplicate_file(message, entity)
              if is_duplicate:
                  print('Group:{}, delete duplicate files[{}]'.format(entity.title,message.id))
-                 await Client.delete_messages(entity=entity, message_ids=[message.id]) # delete message
+                 await client.delete_messages(entity=entity, message_ids=[message.id]) # delete message
                  delete += 1
              total += 1
              bar.set_description('Group: {} Initialize check for duplicate files, check quantity: {}, delete: {}'.format(entity.title, total, delete))
