@@ -130,5 +130,5 @@ with client:
      print("Initialize check for duplicate files")
      asyncio.get_event_loop().run_until_complete(init())
      print("Start listening for new messages:")
-     client.add_event_handler(handler()
+     client.add_event_handler(handler)
      client.run_until_disconnected()
