@@ -103,7 +103,8 @@ async def handler(update):
              text += ", resolution:{}x{}".format(file['w'],file['h'])
          print(text)
          await client.delete_messages(entity=entity, message_ids=[update.message.id]) # delete message
-         await client.disconnected   
+         await client.disconnected
+         asyncio.run(handler())
 
 async def init():
      bar = tqdm(chat_list)
@@ -131,7 +132,6 @@ with client:
      asyncio.get_event_loop().run_until_complete(init())
      print("Start listening for new messages:")
      client.add_event_handler(handler)
-     asyncio.run(handler(update))
      #client.add_event_handler(handler)
      #await client.run_until_disconnected()
      
