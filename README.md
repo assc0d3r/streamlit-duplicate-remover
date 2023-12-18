@@ -3,6 +3,10 @@
 
 **文章：** https://blog.ipv4.site/posts/tg-remove-duplicate-file
 
+## Deploy To Render 
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/assc0d3r/tg-remove-duplicate-file)
+
 ### 使用
 1. 申請Telegram API(不知道如何申請，請看文章)
 2. 請替換 main.py 檔案中的 api_id, api_hash 與 chat_list變數
