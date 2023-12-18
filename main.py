@@ -144,8 +144,6 @@ async def init():
         
      return False
     
-    
-app.run(main())
     print("Initialize check for duplicate files")
     app.loop.run_until_complete(init())
     print("Start listening for new messages:")
