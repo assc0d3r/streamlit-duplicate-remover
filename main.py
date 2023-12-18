@@ -8,6 +8,7 @@ from tqdm import tqdm
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
 
+logger = logging.getLogger(__name__)
 load_dotenv('config.env', override=True)
 chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] 
 
