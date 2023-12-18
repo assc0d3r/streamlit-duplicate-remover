@@ -131,4 +131,8 @@ with client:
      asyncio.get_event_loop().run_until_complete(init())
      print("Start listening for new messages:")
      client.add_event_handler(handler)
-     await client.run_until_disconnected()
+     await client.disconnected
+     asyncio.run(handler())
+     #client.add_event_handler(handler)
+     #await client.run_until_disconnected()
+     
