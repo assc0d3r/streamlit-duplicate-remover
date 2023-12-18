@@ -144,7 +144,7 @@ async def init():
         
      return False
     
-client = TelegramClient('my_user_bot', api_id, api_hash)
+client = TelegramClient('my_user_bot', API_ID, API_HASH)
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
