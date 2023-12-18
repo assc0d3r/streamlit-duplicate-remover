@@ -8,12 +8,12 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=lo
 logger = logging. getLogger(__name__)
 queue = asyncio. Queue()
 
-api_id = 10038985 # Please replace it with your own api_id
-api_hash = 'b13a9434d5f59fdb592bf3cd0f457eff' # Please replace it with your own api_hash
+APP_ID = config("APP_ID", default=None, cast=int)
+API_HASH = config("API_HASH", default=None)
+SESSION = config("SESSION")
+chat_list = config("chat_list")
 
-# list of groups
-chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] # Please replace it with the group you want to listen to
-   
+  
 # calculate file size
 def convert_size(text):
      units = ["B", "KB", "MB", "GB", "TB", "PB"]
@@ -122,7 +122,7 @@ async def init():
         
      return False
 
-client = TelegramClient('bot', api_id, api_hash)
+client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
