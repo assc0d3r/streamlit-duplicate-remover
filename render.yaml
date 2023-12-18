@@ -14,5 +14,7 @@ services:
       - key: APP_ID
         sync: false
       - key: API_HASH
-        sync: false    
+        sync: false 
+      - key: chat_list
+        sync: false
     autoDeploy: false
