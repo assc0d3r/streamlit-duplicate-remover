@@ -126,7 +126,7 @@ async def handler(update):
 async def init():
      bar = tqdm(chat_list)
      for i in bar:
-         entity = await Client. get_entity(i)
+         entity = await Client.get_entity(i)
          file_list[entity.id] = [] # Initialize each group file list
          total = 0 # count the number of messages processed
          delete = 0 # Count the number of deleted messages
