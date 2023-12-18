@@ -5,7 +5,7 @@
 
 ## Deploy To Render 
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/assc0d3r/tg-remove-duplicate-file)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/assc0d3r/tg-remove-duplicate-file)
 
 ### 使用
 1. 申請Telegram API(不知道如何申請，請看文章)
