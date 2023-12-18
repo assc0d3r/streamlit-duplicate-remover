@@ -15,8 +15,6 @@ API_HASH = config("API_HASH", default=None)
 SESSION = config("SESSION")
 chat_list = config("chat_list")
 
-chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk']
-
 # calculate file size
 def convert_size(text):
      units = ["B", "KB", "MB", "GB", "TB", "PB"]
