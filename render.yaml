@@ -1,12 +1,13 @@
 services:
   - type: web
     plan: free
+    region: frankfurt
     name: vipertgdel
     env: docker
     #buildCommand: pip install -U -r requirements.txt
     #startCommand: gunicorn app:app & python3 -m Zaid
     repo: https://github.com/assc0d3r/tg-remove-duplicate-file      
-    branch: main
+    branch: master
     envVars:
       - key: SESSION 
         sync: false
