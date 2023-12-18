@@ -9,6 +9,7 @@ from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
 
 load_dotenv('config.env', override=True)
+chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] 
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -45,7 +46,7 @@ def convert_size(text):
              return "%.2f%s" % (text, units[i])
          text = text/size
      return 0
-chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] 
+
 # Get file information
 def get_file_information(message):
      file = None
