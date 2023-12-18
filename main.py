@@ -1,4 +1,4 @@
-import asyncio.subprocess asyncio
+import asyncio
 import logging
 from tqdm import tqdm
 from telethon import TelegramClient, events
