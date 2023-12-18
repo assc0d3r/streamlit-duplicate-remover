@@ -1,6 +1,5 @@
 services:
   - type: web
-    plan: free
     region: frankfurt
     name: vipertgdel
     env: docker
