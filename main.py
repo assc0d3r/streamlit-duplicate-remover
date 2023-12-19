@@ -79,14 +79,14 @@ def check_duplicate_file(message, entity):
 
 file_list = {} # record file id
 
-@events.register(events.NewMessage([PeerChannel(-1001532936085)]))
+@events.register(events.NewMessage())
 async def handler(update):
      # get group new information
      chat_id = update.message.to_id
      try:
          entity = await client.get_entity(chat_id)
      except ValueError:
-         entity = await client.get_entity(PeerChannel(-1001532936085))
+         entity = await client.get_entity(PeerChannel())
      except Exception as e:
          logger. error(type(e.__class__, e))
          return
