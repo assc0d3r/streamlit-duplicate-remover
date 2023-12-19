@@ -125,7 +125,7 @@ async def init():
              bar.set_description('Group: {} Initialize check for duplicate files, check quantity: {}, delete: {}'.format(entity.title, total, delete))
         
      return False
-         await client.disconnected     
+                 await client.disconnected     
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH, sequential_updates=True)
 with client:
      print("Initialize check for duplicate files")
