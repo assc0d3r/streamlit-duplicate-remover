@@ -81,8 +81,8 @@ file_list = {} # record file id
 
 @events.register(events.NewMessage(chats=tuple(chat_list)))
 async def handler(update):
-     #get group new information
-    chat_id = update.message.to_id
+     # get group new information
+     chat_id = update.message.to_id
      try:
          entity = await client.get_entity(chat_id)
      except ValueError:
