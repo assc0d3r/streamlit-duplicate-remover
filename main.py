@@ -129,6 +129,9 @@ async def init():
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 try:
      with client:
+except Exception as ap:
+     print(f"ERROR - {ap}")
+     exit(1)    
       print("Initialize check for duplicate files")
       asyncio.run(init())
       #asyncio.get_event_loop().run_until_complete(init())
