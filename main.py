@@ -79,14 +79,14 @@ def check_duplicate_file(message, entity):
 
 file_list = {} # record file id
 
-@events.register(events.NewMessage())
+@events.register(events.NewMessage(chats=tuple(chat_list)))
 async def handler(update):
      # get group new information
      chat_id = update.message.to_id
      try:
          entity = await client.get_entity(chat_id)
      except ValueError:
-         entity = await client.get_entity(PeerChannel())
+         entity = await client.get_entity(PeerChannel(chat_id))
      except Exception as e:
          logger. error(type(e.__class__, e))
          return
@@ -130,9 +130,9 @@ client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 try:
      with client:
       print("Initialize check for duplicate files")
-      #asyncio.run(init())
+      asyncio.run(init())
       #asyncio.get_event_loop().run_until_complete(init())
-      client.loop.run_until_complete(init())
+      #client.loop.run_until_complete(init())
 finally:
       print("Start listening for new messages:")
       client.add_event_handler(handler)
