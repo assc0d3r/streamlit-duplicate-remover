@@ -6,9 +6,9 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
-logger = logging. getLogger(__name__)
-queue = asyncio. Queue()
+#logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
+#logger = logging. getLogger(__name__)
+#queue = asyncio. Queue()
 
 APP_ID = config("APP_ID", default=None, cast=int)
 API_HASH = config("API_HASH", default=None)
@@ -82,14 +82,14 @@ file_list = {} # record file id
 @events.register(events.NewMessage(chats=tuple(chat_list)))
 async def handler(update):
      # get group new information
-     chat_id = update.message.to_id
-     try:
-         entity = await client.get_entity(chat_id)
-     except ValueError:
-         entity = await client.get_entity(PeerChannel(chat_id))
-     except Exception as e:
-         logger. error(type(e.__class__, e))
-         return
+    # chat_id = update.message.to_id
+    # try:
+     #    entity = await client.get_entity(chat_id)
+     #except ValueError:
+      #   entity = await client.get_entity(PeerChannel(chat_id))
+     #except Exception as e:
+      #   logger. error(type(e.__class__, e))
+       #  return
 
      text = ""
      print("Group:{}, new message".format(entity.title))
