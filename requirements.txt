@@ -8,3 +8,6 @@ Flask
 gunicorn
 TgCrypto 
 python-decouple
+cryptg
+pillow
+hachoir
