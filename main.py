@@ -6,9 +6,9 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 
-#logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
-#logger = logging. getLogger(__name__)
-#queue = asyncio. Queue()
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
+logger = logging. getLogger(__name__)
+queue = asyncio. Queue()
 
 APP_ID = config("APP_ID", default=None, cast=int)
 API_HASH = config("API_HASH", default=None)
