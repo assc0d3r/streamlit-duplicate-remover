@@ -95,7 +95,7 @@ async def handler(update):
      except Exception as e:
           print(e)
          #logger. error(type(e.__class__, e))
-         return
+          return
 
      text = ""
      print("Group:{}, new message".format(entity.title))
