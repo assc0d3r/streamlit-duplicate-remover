@@ -130,7 +130,7 @@ async def init():
      return False
                  #await client.disconnected     
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
-string = client.session.save()
+SESSION = client.session.save()
 with client:
       print("Initialize check for duplicate files")
       #asyncio.run(init())
