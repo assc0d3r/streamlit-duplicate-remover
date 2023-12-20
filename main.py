@@ -82,7 +82,7 @@ def check_duplicate_file(message, entity):
 
 file_list = {} # record file id
 
-@events.register(events.NewMessage(chats=tuple(chat_list)))
+@client.on(events.NewMessage(incoming=True,chats=tuple(chat_list)))
 async def handler(update):
      # get group new information
      chat_id = update.message.to_id
