@@ -84,7 +84,7 @@ def check_duplicate_file(message, entity):
 
 file_list = {} # record file id
 
-@client.on(events.NewMessage(incoming=True,chats=tuple(chat_list)))
+@events.register(events.NewMessage(chats=tuple(chat_list)))
 async def handler(update):
      # get group new information
      chat_id = update.message.to_id
@@ -98,7 +98,7 @@ async def handler(update):
 
      text = ""
      print("Group:{}, new message".format(entity.title))
-     is_duplicate, file = check_duplicate_file(update.message, entity)
+     is_duplicate, file = check_duplicate_file(update. message, entity)
      if is_duplicate:
          text += "time:{}".format(file['datetime'])
          if 'type' in file: text += ", file type: {}".format(file['type'])
@@ -108,13 +108,12 @@ async def handler(update):
              text += ", resolution:{}x{}".format(file['w'],file['h'])
          print(text)
          await client.delete_messages(entity=entity, message_ids=[update.message.id]) # delete message
-         #await client.disconnected
-         #asyncio.run(handler())
+            
 
 async def init():
      bar = tqdm(chat_list)
      for i in bar:
-         entity = await client.get_entity(i)
+         entity = await client. get_entity(i)
          file_list[entity.id] = [] # Initialize each group file list
          total = 0 # count the number of messages processed
          delete = 0 # Count the number of deleted messages
@@ -130,19 +129,14 @@ async def init():
              bar.set_description('Group: {} Initialize check for duplicate files, check quantity: {}, delete: {}'.format(entity.title, total, delete))
         
      return False
-                 #await client.disconnected     
-#client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
-#SESSION = client.session.save()
-with client:
-      print("Initialize check for duplicate files")
-      #asyncio.run(init())
-      #client.get_event_loop().run_until_complete(init())
-      client.loop.run_until_complete(init())
 
-      print("Start listening for new messages:")
-      #client.add_event_handler(handler)      
-      client.run_until_disconnected()
-except Exception as ap:
-      print(f"ERROR - {ap}")
-      exit(1)
+#client = TelegramClient('bot', api_id, api_hash)
+with client:
+     print("Initialize check for duplicate files")
+     client.loop.run_until_complete(init())
+
+     print("Start listening for new messages:")
+     client.add_event_handler(handler)
+     client.run_until_disconnected()
+
       
