@@ -137,8 +137,8 @@ try:
      #exit(1)    
       print("Initialize check for duplicate files")
       #asyncio.run(init())
-      #asyncio.get_event_loop().run_until_complete(init())
-      client.loop.run_until_complete(init())
+      asyncio.get_event_loop().run_until_complete(init())
+      #client.loop.run_until_complete(init())
 finally:
       print("Start listening for new messages:")
       client.add_event_handler(handler)
