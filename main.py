@@ -1,7 +1,7 @@
 import asyncio
 import logging
 from tqdm import tqdm
-from telethon import TelegramClient, events
+from telethon import TelegramClient, events errors
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
 from decouple import config
 from telethon.sessions import StringSession
@@ -103,7 +103,7 @@ async def handler(update):
              text += ", resolution:{}x{}".format(file['w'],file['h'])
          print(text)
          await client.delete_messages(entity=entity, message_ids=[update.message.id]) # delete message
-         await client.disconnected
+         #await client.disconnected
          #asyncio.run(handler())
 
 async def init():
