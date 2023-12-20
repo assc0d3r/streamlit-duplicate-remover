@@ -6,9 +6,12 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
-logger = logging. getLogger(__name__)
-queue = asyncio. Queue()
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+level=logging.DEBUG)
+
+#logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
+#logger = logging. getLogger(__name__)
+#queue = asyncio. Queue()
 
 APP_ID = config("APP_ID", default=None, cast=int)
 API_HASH = config("API_HASH", default=None)
@@ -129,9 +132,9 @@ async def init():
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 try:
      with client:
-except Exception as ap:
-     print(f"ERROR - {ap}")
-     exit(1)    
+#except Exception as ap:
+     #print(f"ERROR - {ap}")
+     #exit(1)    
       print("Initialize check for duplicate files")
       asyncio.run(init())
       #asyncio.get_event_loop().run_until_complete(init())
