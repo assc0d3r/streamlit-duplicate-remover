@@ -93,9 +93,8 @@ async def handler(update):
      except ValueError:
          entity = await client.get_entity(PeerChannel(chat_id))
      except Exception as e:
-          print(e)
-         #logger. error(type(e.__class__, e))
-          return
+         logger. error(type(e.__class__, e))
+         return
 
      text = ""
      print("Group:{}, new message".format(entity.title))
