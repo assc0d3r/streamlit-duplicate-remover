@@ -18,6 +18,8 @@ API_HASH = config("API_HASH", default=None)
 SESSION = config("SESSION")
 chat_list = config("chat_list")
 
+client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
+SESSION = client.session.save()
 chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk']  
 
 # calculate file size
@@ -129,8 +131,8 @@ async def init():
         
      return False
                  #await client.disconnected     
-client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
-SESSION = client.session.save()
+#client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
+#SESSION = client.session.save()
 with client:
       print("Initialize check for duplicate files")
       #asyncio.run(init())
