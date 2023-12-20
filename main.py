@@ -98,7 +98,7 @@ async def handler(update):
 
      text = ""
      print("Group:{}, new message".format(entity.title))
-     is_duplicate, file = check_duplicate_file(update. message, entity)
+     is_duplicate, file = check_duplicate_file(update.message, entity)
      if is_duplicate:
          text += "time:{}".format(file['datetime'])
          if 'type' in file: text += ", file type: {}".format(file['type'])
