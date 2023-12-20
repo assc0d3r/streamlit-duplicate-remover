@@ -6,8 +6,8 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-level=logging.DEBUG)
+#logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+#level=logging.DEBUG)
 
 #logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
 #logger = logging. getLogger(__name__)
