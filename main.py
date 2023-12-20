@@ -11,7 +11,7 @@ level=logging.DEBUG)
 
 #logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
 #logger = logging. getLogger(__name__)
-#queue = asyncio. Queue()
+queue = asyncio. Queue()
 
 APP_ID = config("APP_ID", default=None, cast=int)
 API_HASH = config("API_HASH", default=None)
