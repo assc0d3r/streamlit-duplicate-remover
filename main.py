@@ -133,7 +133,7 @@ async def init():
 #client = TelegramClient('bot', api_id, api_hash)
 with client:
      #print("Initialize check for duplicate files")
-     client.loop.run_until_complete(init())
+     #client.loop.run_until_complete(init())
 
      #print("Start listening for new messages:")
      client.add_event_handler(handler)
