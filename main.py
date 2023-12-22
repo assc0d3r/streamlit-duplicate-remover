@@ -6,6 +6,13 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
+    datefmt="%d-%b-%y %H:%M:%S",
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
 #logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
 #level=logging.DEBUG)
 
