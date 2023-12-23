@@ -27,9 +27,9 @@ SESSION = config("SESSION")
 chat_list = config("chat_list")
 
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
-SESSION = client.session.save()
+#SESSION = client.session.save()
 #with TelegramClient('viperdupes', APP_ID, API_HASH) as client:
-     print(client.session.save())
+     #print(client.session.save())
 chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk']  
 
 # calculate file size
