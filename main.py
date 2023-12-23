@@ -10,6 +10,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
     datefmt="%d-%b-%y %H:%M:%S",
+    filename='logfile.log',
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
@@ -17,7 +18,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 #level=logging.DEBUG)
 
 #logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
-#logger = logging. getLogger(__name__)
+logger = logging. getLogger(__name__)
 queue = asyncio. Queue()
 
 APP_ID = config("APP_ID", default=None, cast=int)
