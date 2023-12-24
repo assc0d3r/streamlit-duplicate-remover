@@ -1,13 +1,3 @@
 Telethon
 tqdm
-aiohttp
-uvicorn
-python-dotenv
-pyrogram
-Flask
-gunicorn
-TgCrypto 
-python-decouple
-cryptg
-pillow
-hachoir
+streamlit
