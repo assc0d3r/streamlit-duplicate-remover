@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Specify the command to run your bot.py script
-CMD ["streamlit run", "streamlit_app.py"]
+RUN streamlit run streamlit_app.py
