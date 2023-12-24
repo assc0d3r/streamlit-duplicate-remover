@@ -1,37 +1,19 @@
-import asyncio
+import asyncio.subprocess
 import logging
 from tqdm import tqdm
-from telethon import TelegramClient, events, errors
+from telethon import TelegramClient, events
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
-from decouple import config
-from telethon.sessions import StringSession
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
-    datefmt="%d-%b-%y %H:%M:%S",
-    filename='logfile.log',
-)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
-#logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-#level=logging.DEBUG)
-
-#logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO, filename='logfile.log')
 logger = logging. getLogger(__name__)
 queue = asyncio. Queue()
 
-#APP_ID = config("APP_ID", default=None, cast=int)
-#API_HASH = config("API_HASH", default=None)
-#SESSION = config("SESSION")
-#chat_list = config("chat_list")
+api_id = 10038985 # Please replace it with your own api_id
+api_hash = 'b13a9434d5f59fdb592bf3cd0f457eff' # Please replace it with your own api_hash
 
-client = TelegramClient('Streamlit', APP_ID, API_HASH)
-#SESSION = client.session.save()
-#with TelegramClient('viperdupes', APP_ID, API_HASH) as client:
-     #print(client.session.save())
-chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk']  
-
+# list of groups
+chat_list = ['https://t.me/+ARvYdn7lqJNlYWRk'] # Please replace it with the group you want to listen to
+   
 # calculate file size
 def convert_size(text):
      units = ["B", "KB", "MB", "GB", "TB", "PB"]
@@ -108,7 +90,7 @@ async def handler(update):
 
      text = ""
      print("Group:{}, new message".format(entity.title))
-     is_duplicate, file = check_duplicate_file(update.message, entity)
+     is_duplicate, file = check_duplicate_file(update. message, entity)
      if is_duplicate:
          text += "time:{}".format(file['datetime'])
          if 'type' in file: text += ", file type: {}".format(file['type'])
@@ -123,7 +105,7 @@ async def handler(update):
 async def init():
      bar = tqdm(chat_list)
      for i in bar:
-         entity = await client.get_entity(i)
+         entity = await client. get_entity(i)
          file_list[entity.id] = [] # Initialize each group file list
          total = 0 # count the number of messages processed
          delete = 0 # Count the number of deleted messages
@@ -140,13 +122,11 @@ async def init():
         
      return False
 
-#client = TelegramClient('bot', api_id, api_hash)
+client = TelegramClient('bot', api_id, api_hash)
 with client:
      print("Initialize check for duplicate files")
      client.loop.run_until_complete(init())
 
-     #print("Start listening for new messages:")
+     print("Start listening for new messages:")
      client.add_event_handler(handler)
      client.run_until_disconnected()
-
-      
