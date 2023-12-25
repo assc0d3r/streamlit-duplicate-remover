@@ -153,5 +153,5 @@ with client:
      client.add_event_handler(handler)
      client.run_until_disconnected()
 
-if __name__ == "__streamlit_app__":
+if __name__ == "__flask__":
     app.run(host="0.0.0.0", port=8080, debug=True)
