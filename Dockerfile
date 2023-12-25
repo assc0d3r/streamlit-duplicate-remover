@@ -14,4 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Specify the command to run your bot.py script
-RUN streamlit run streamlit_app.py
+#RUN streamlit run streamlit_app.py
+CMD ["gunicorn", "flask.py", "run:app"]
