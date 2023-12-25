@@ -15,5 +15,5 @@ COPY . /app/
 
 # Specify the command to run your bot.py script
 #RUN streamlit run streamlit_app.py
-CMD ["gunicorn", "app:app & python3 viper.py", "run:app"]
+CMD ["gunicorn", "app:app & python3 viper.py",]
 #CMD ["python", "viper.py"]
