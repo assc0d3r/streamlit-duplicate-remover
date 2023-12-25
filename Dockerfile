@@ -15,4 +15,5 @@ COPY . /app/
 
 # Specify the command to run your bot.py script
 #RUN streamlit run streamlit_app.py
-CMD ["gunicorn", "flask.py", "run:app"]
+#CMD ["gunicorn", "flask.py", "run:app"]
+CMD ["python", "flask.py"]
