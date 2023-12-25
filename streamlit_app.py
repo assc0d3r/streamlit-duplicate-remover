@@ -6,9 +6,12 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 from flask import Flask
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
+def hello_world():
+    return 'Hello, World!'
 
 logging.basicConfig(
     level=logging.DEBUG,
