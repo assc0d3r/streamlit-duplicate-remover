@@ -6,7 +6,6 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 from flask import Flask
-from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
@@ -153,3 +152,6 @@ with client:
      print("Start listening for new messages:")
      client.add_event_handler(handler)
      client.run_until_disconnected()
+
+if __name__ == "__streamlit_app__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
