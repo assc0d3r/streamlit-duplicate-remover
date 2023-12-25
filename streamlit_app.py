@@ -5,6 +5,10 @@ from telethon import TelegramClient, events, errors
 from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAttributeVideo, MessageMediaPhoto, PhotoSizeProgressive
 from decouple import config
 from telethon.sessions import StringSession
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
 
 logging.basicConfig(
     level=logging.DEBUG,
