@@ -6,6 +6,7 @@ from telethon.tl.types import PeerChannel, DocumentAttributeFilename, DocumentAt
 from decouple import config
 from telethon.sessions import StringSession
 from flask import Flask
+import os
 #app = Flask(__name__)
 
 #@app.route('/')
@@ -30,7 +31,7 @@ queue = asyncio. Queue()
 APP_ID = config("APP_ID", default=None, cast=int)
 API_HASH = config("API_HASH", default=None)
 SESSION = config("SESSION")
-CHAT_LIST = config("CHAT_LIST")
+CHAT_LIST = os.getenv('CHAT_LIST')
 
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 SESSION = client.session.save()
