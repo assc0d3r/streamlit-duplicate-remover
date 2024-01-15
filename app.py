@@ -10,4 +10,4 @@ def hello_world():
 
 if __name__ == "__main__":
     #app.run()
-    app.run(debug=True, port=os.getenv("PORT", default=5000), host='0.0.0.0')
+    app.run(debug=True, port=os.getenv("PORT", default=8080), host='0.0.0.0')
