@@ -31,7 +31,7 @@ queue = asyncio. Queue()
 APP_ID = config("APP_ID", default=None, cast=int)
 API_HASH = config("API_HASH", default=None)
 SESSION = config("SESSION")
-CHAT_LIST = os.getenv('CHAT_LIST')
+#CHAT_LIST = os.getenv('CHAT_LIST')
 
 client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 SESSION = client.session.save()
