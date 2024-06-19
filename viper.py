@@ -37,7 +37,7 @@ client = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
 SESSION = client.session.save()
 #with TelegramClient('viperdupes', APP_ID, API_HASH) as client:
      #print(client.session.save())
-CHAT_LIST = ['https://t.me/+ARvYdn7lqJNlYWRk' 'https://t.me/+EBroZdiENqM0OTJk']  
+CHAT_LIST = ['https://t.me/+ARvYdn7lqJNlYWRk https://t.me/+EBroZdiENqM0OTJk']  
 
 # calculate file size
 def convert_size(text):
