@@ -19,6 +19,5 @@ tqdm
 aiohttp
 pyrogram
 python-decouple
-cryptg
-pillow
-hachoir
+asyncio
+decouple
