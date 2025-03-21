@@ -20,4 +20,4 @@ aiohttp
 pyrogram
 python-decouple
 asyncio
-decouple
+python-decouple
